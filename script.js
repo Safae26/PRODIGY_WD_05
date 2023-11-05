@@ -1,6 +1,9 @@
 //Our API URL
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
 
+// Define your API key
+const apiKey = "YOUR_OPENWEATHER_API_KEY"; // Insert your API key here
+
 // Function to get the weather data
 const searchBox = document.querySelector(".search input");
 
@@ -9,7 +12,7 @@ const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 
 async function checkWeather(city) {
-  const response = await fetch(apiUrl + city + '&appid=79d9dd9d50fd014dc36602afbb93f501');
+  const response = await fetch(apiUrl + city + '&appid=${apiKey}');
 
   if(response.status == 404){
     document.querySelector(".error").style.display = "block";
